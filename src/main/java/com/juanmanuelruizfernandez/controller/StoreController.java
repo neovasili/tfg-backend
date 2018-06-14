@@ -33,7 +33,7 @@ public class StoreController {
 	public ResponseEntity< StoreControllerResponse > getStoreTicket( @PathVariable( value = "storeID" ) String storeID )
 			throws IOException {
 
-		List< Ticket > ticketList = storeService.getStoreTickets( storeID );
+		List<Ticket> ticketList = storeService.getStoreTickets( storeID );
 
 		this.storeControllerResponse.setTicketList( ticketList );
 

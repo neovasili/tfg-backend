@@ -18,7 +18,7 @@ public class StoreServiceImpl implements StoreService {
 	}
 
 	@Override
-	public List< Ticket > getStoreTickets( String storeID ) throws IOException {
+	public List<Ticket> getStoreTickets(String storeID ) throws IOException {
 
 		List< Ticket > ticketList = this.awsDynamoDBService.getTicketsFilteredByAttribute( "storeID", storeID );
 

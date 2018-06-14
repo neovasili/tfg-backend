@@ -17,7 +17,7 @@ public class TicketServiceImpl implements TicketService {
 	}
 
 	@Override
-	public Ticket create( Ticket ticket ) {
+	public Ticket create(Ticket ticket ) {
 
 		ticket = this.awsDynamoDBService.save( ticket );
 
