@@ -86,25 +86,22 @@ public class TicketController {
 
         this.ticketControllerResponse.setInvocator( "receiveTicket" );
 
-        System.out.println( "snsSubscription = " + snsSubscription );
-
         if ( snsSubscription.getSubscribeURL() != null ) {
-
-            System.out.println( "confirm subscription" );
 
             restTemplate.getForObject( snsSubscription.getSubscribeURL(), String.class );
 
             return new ResponseEntity< TicketControllerResponse >( this.ticketControllerResponse,
                     this.headers,
                     HttpStatus.OK );
+        } else {
+
+            template.convertAndSend( "/response/ticket", snsSubscription.getMessage() );
+
+            this.ticketControllerResponse.setTicket( new Ticket( snsSubscription.getMessage() ) );
+
+            return new ResponseEntity< TicketControllerResponse >( this.ticketControllerResponse,
+                    this.headers,
+                    HttpStatus.OK );
         }
-
-        template.convertAndSend( "/response/ticket", snsSubscription.getMessage() );
-
-        this.ticketControllerResponse.setTicket( new Ticket( snsSubscription.getMessage() ) );
-
-        return new ResponseEntity< TicketControllerResponse >( this.ticketControllerResponse,
-                this.headers,
-                HttpStatus.OK );
     }
 }

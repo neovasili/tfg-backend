@@ -14,7 +14,7 @@
 	<parent>
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
-		<version>1.5.4.RELEASE</version>
+		<version>LATEST</version>
 	</parent>
 
 	<dependencies>
@@ -23,7 +23,6 @@
             <artifactId>aws-java-sdk</artifactId>
             <version>LATEST</version>
         </dependency>
-
 
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
@@ -42,12 +41,12 @@
 		<dependency>
 			<groupId>org.hibernate.javax.persistence</groupId>
 			<artifactId>hibernate-jpa-2.1-api</artifactId>
-			<version>1.0.0.Final</version>
+			<version>LATEST</version>
 		</dependency>
         <dependency>
             <groupId>org.json</groupId>
             <artifactId>json</artifactId>
-            <version>20160810</version>
+            <version>LATEST</version>
         </dependency>
     </dependencies>
 

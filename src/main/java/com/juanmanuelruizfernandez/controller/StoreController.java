@@ -37,9 +37,6 @@ public class StoreController {
 
         this.storeControllerResponse.setTicketList( ticketList );
 
-        HttpHeaders headers = new HttpHeaders();
-        headers.add( "Access-Control-Allow-Origin", "*" );
-
         return new ResponseEntity< StoreControllerResponse >( this.storeControllerResponse,
                 this.headers,
                 HttpStatus.OK );

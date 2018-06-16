@@ -2,7 +2,8 @@ package com.juanmanuelruizfernandez.model;
 
 import java.time.LocalDateTime;
 
-public class TicketControllerResponse extends ControllerResponse {
+public class
+TicketControllerResponse extends ControllerResponse {
 
     private Ticket ticket;
 
