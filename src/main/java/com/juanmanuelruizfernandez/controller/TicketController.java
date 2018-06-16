@@ -44,7 +44,6 @@ public class TicketController {
         return new RestTemplate();
     }
 
-    @CrossOrigin( origins = "*" )
     @RequestMapping( method = RequestMethod.POST, produces = "application/json" )
     public ResponseEntity< TicketControllerResponse > createTicket( @Valid @RequestBody Ticket ticket ) {
 
@@ -58,7 +57,6 @@ public class TicketController {
                 HttpStatus.OK );
     }
 
-    @CrossOrigin( origins = "*" )
     @RequestMapping( path = "/{ticketID}", method = RequestMethod.GET )
     public ResponseEntity< TicketControllerResponse > getTicket( @PathVariable( value = "ticketID" ) String ticketID )
             throws IOException {

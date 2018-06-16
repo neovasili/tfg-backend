@@ -28,7 +28,6 @@ public class StoreController {
         this.storeControllerResponse = new StoreControllerResponse();
     }
 
-    @CrossOrigin( origins = "*" )
     @RequestMapping( path = "/{storeID}", method = RequestMethod.GET )
     public ResponseEntity< StoreControllerResponse > getStoreTicket( @PathVariable( value = "storeID" ) String storeID )
             throws IOException {
