@@ -86,7 +86,11 @@ public class TicketController {
 
         this.ticketControllerResponse.setInvocator( "receiveTicket" );
 
+        System.out.println( "snsSubscription = " + snsSubscription );
+
         if ( snsSubscription.getSubscribeURL() != null ) {
+
+            System.out.println( "confirm subscription" );
 
             restTemplate.getForObject( snsSubscription.getSubscribeURL(), String.class );
 
