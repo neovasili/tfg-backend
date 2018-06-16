@@ -5,12 +5,12 @@ import org.springframework.context.annotation.Configuration;
 @Configuration
 public class ConfigurationProperties {
 
-	private String dynamoDBTableName = "tfg-tickets";
+    private String dynamoDBTableName = "tfg-tickets";
 
-	public ConfigurationProperties() {
-	}
+    public ConfigurationProperties() {
+    }
 
-	public String getDynamoDBTableName() {
-		return dynamoDBTableName;
-	}
+    public String getDynamoDBTableName() {
+        return dynamoDBTableName;
+    }
 }

@@ -6,7 +6,7 @@ import java.io.IOException;
 
 public interface TicketService {
 
-	Ticket create(Ticket ticket );
+    Ticket create( Ticket ticket );
 
-	Ticket getTicket( String ticketID ) throws IOException;
+    Ticket getTicket( String ticketID ) throws IOException;
 }

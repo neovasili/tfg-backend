@@ -8,15 +8,15 @@ import org.springframework.stereotype.Controller;
 @Controller
 public class WebSocketController {
 
-	@MessageMapping( "/ack" )
-	@SendTo( "/response/ticket" )
-	public ControllerResponse receiveTicket( String snsMessage ) {
+    @MessageMapping( "/ack" )
+    @SendTo( "/response/ticket" )
+    public ControllerResponse receiveTicket( String snsMessage ) {
 
-		ControllerResponse controllerResponse = new ControllerResponse();
+        ControllerResponse controllerResponse = new ControllerResponse();
 
-		controllerResponse.setInvocator( "receiveTicketWebSocket" );
+        controllerResponse.setInvocator( "receiveTicketWebSocket" );
 
-		return controllerResponse;
-	}
+        return controllerResponse;
+    }
 
 }

@@ -6,7 +6,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 @SpringBootApplication
 public class RtdbApplication {
 
-	public static void main( String[] args ) {
-		SpringApplication.run( RtdbApplication.class, args );
-	}
+    public static void main( String[] args ) {
+        SpringApplication.run( RtdbApplication.class, args );
+    }
 }

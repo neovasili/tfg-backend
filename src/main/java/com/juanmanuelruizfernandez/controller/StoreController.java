@@ -16,32 +16,32 @@ import java.util.List;
 @RequestMapping( "/store" )
 public class StoreController {
 
-	private StoreService storeService;
-	private HttpHeaders headers;
-	private StoreControllerResponse storeControllerResponse;
+    private StoreService storeService;
+    private HttpHeaders headers;
+    private StoreControllerResponse storeControllerResponse;
 
-	@Autowired
-	public StoreController( StoreService storeService ) {
-		this.storeService = storeService;
-		this.headers = new HttpHeaders();
-		headers.add( "Access-Control-Allow-Origin", "*" );
-		this.storeControllerResponse = new StoreControllerResponse();
-	}
+    @Autowired
+    public StoreController( StoreService storeService ) {
+        this.storeService = storeService;
+        this.headers = new HttpHeaders();
+        headers.add( "Access-Control-Allow-Origin", "*" );
+        this.storeControllerResponse = new StoreControllerResponse();
+    }
 
     @CrossOrigin( origins = "*" )
-	@RequestMapping( path = "/{storeID}", method = RequestMethod.GET )
-	public ResponseEntity< StoreControllerResponse > getStoreTicket( @PathVariable( value = "storeID" ) String storeID )
-			throws IOException {
+    @RequestMapping( path = "/{storeID}", method = RequestMethod.GET )
+    public ResponseEntity< StoreControllerResponse > getStoreTicket( @PathVariable( value = "storeID" ) String storeID )
+            throws IOException {
 
-		List<Ticket> ticketList = storeService.getStoreTickets( storeID );
+        List< Ticket > ticketList = storeService.getStoreTickets( storeID );
 
-		this.storeControllerResponse.setTicketList( ticketList );
+        this.storeControllerResponse.setTicketList( ticketList );
 
-		HttpHeaders headers = new HttpHeaders();
-		headers.add( "Access-Control-Allow-Origin", "*" );
+        HttpHeaders headers = new HttpHeaders();
+        headers.add( "Access-Control-Allow-Origin", "*" );
 
-		return new ResponseEntity< StoreControllerResponse >( this.storeControllerResponse,
-				this.headers,
-				HttpStatus.OK );
-	}
+        return new ResponseEntity< StoreControllerResponse >( this.storeControllerResponse,
+                this.headers,
+                HttpStatus.OK );
+    }
 }

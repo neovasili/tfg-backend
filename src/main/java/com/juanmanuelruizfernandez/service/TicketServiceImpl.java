@@ -9,24 +9,24 @@ import java.io.IOException;
 @Service
 public class TicketServiceImpl implements TicketService {
 
-	private AWSDynamoDBService awsDynamoDBService;
+    private AWSDynamoDBService awsDynamoDBService;
 
-	@Autowired
-	public TicketServiceImpl( AWSDynamoDBService awsDynamoDBService ) {
-		this.awsDynamoDBService = awsDynamoDBService;
-	}
+    @Autowired
+    public TicketServiceImpl( AWSDynamoDBService awsDynamoDBService ) {
+        this.awsDynamoDBService = awsDynamoDBService;
+    }
 
-	@Override
-	public Ticket create(Ticket ticket ) {
+    @Override
+    public Ticket create( Ticket ticket ) {
 
-		ticket = this.awsDynamoDBService.save( ticket );
+        ticket = this.awsDynamoDBService.save( ticket );
 
-		return ticket;
-	}
+        return ticket;
+    }
 
-	@Override
-	public Ticket getTicket( String ticketID ) throws IOException {
+    @Override
+    public Ticket getTicket( String ticketID ) throws IOException {
 
-		return this.awsDynamoDBService.getTicket( ticketID );
-	}
+        return this.awsDynamoDBService.getTicket( ticketID );
+    }
 }
