@@ -16,4 +16,4 @@ phases:
       - echo Build completed on `date`
 artifacts:
   files:
-    - target/backend-0.0.3.jar
+    - target/backend-1.0.0.jar
