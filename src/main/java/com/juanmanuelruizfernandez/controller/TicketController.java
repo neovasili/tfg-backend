@@ -10,6 +10,7 @@ import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.messaging.simp.SimpMessagingTemplate;
+import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.client.RestTemplate;
 
@@ -18,6 +19,7 @@ import javax.validation.Valid;
 import java.io.IOException;
 import java.util.Scanner;
 
+@Controller
 @RestController
 @RequestMapping( "/ticket" )
 public class TicketController {
@@ -36,6 +38,7 @@ public class TicketController {
         this.ticketService = ticketService;
         this.headers = new HttpHeaders();
         headers.add( "Access-Control-Allow-Origin", "*" );
+        headers.add( "Content-Type", "application/json; charset=UTF-8" );
         this.ticketControllerResponse = new TicketControllerResponse();
     }
 
@@ -57,7 +60,7 @@ public class TicketController {
                 HttpStatus.OK );
     }
 
-    @RequestMapping( path = "/{ticketID}", method = RequestMethod.GET )
+    @RequestMapping( path = "/{ticketID}", method = RequestMethod.GET, produces = "application/json")
     public ResponseEntity< TicketControllerResponse > getTicket( @PathVariable( value = "ticketID" ) String ticketID )
             throws IOException {
 
@@ -71,7 +74,7 @@ public class TicketController {
                 HttpStatus.OK );
     }
 
-    @RequestMapping( path = "/sns", method = RequestMethod.POST )
+    @RequestMapping( path = "/sns", method = RequestMethod.POST, produces = "application/json" )
     public ResponseEntity< TicketControllerResponse > receiveTicket( HttpServletRequest request )
             throws Exception {
 

@@ -7,11 +7,13 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
 import java.io.IOException;
 import java.util.List;
 
+@Controller
 @RestController
 @RequestMapping( "/store" )
 public class StoreController {
@@ -25,10 +27,11 @@ public class StoreController {
         this.storeService = storeService;
         this.headers = new HttpHeaders();
         headers.add( "Access-Control-Allow-Origin", "*" );
+        headers.add( "Content-Type", "application/json; charset=UTF-8" );
         this.storeControllerResponse = new StoreControllerResponse();
     }
 
-    @RequestMapping( path = "/{storeID}", method = RequestMethod.GET )
+    @RequestMapping( path = "/{storeID}", method = RequestMethod.GET, produces = "application/json" )
     public ResponseEntity< StoreControllerResponse > getStoreTicket( @PathVariable( value = "storeID" ) String storeID )
             throws IOException {
 

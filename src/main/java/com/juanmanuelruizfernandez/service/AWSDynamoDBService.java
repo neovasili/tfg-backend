@@ -18,7 +18,7 @@ public class AWSDynamoDBService {
     private AmazonDynamoDB client = AmazonDynamoDBClientBuilder.standard().build();
     private DynamoDB dynamoDB = new DynamoDB( client );
     private ConfigurationProperties configurationProperties = new ConfigurationProperties();
-    private String tableName = configurationProperties.getDynamoDBTableName();
+    private String tableName = configurationProperties.getDynamoTableName();
     private Table table = dynamoDB.getTable( tableName );
 
     public Ticket save( Ticket ticket ) {
