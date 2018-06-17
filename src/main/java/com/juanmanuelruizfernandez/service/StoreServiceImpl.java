@@ -10,18 +10,18 @@ import java.util.List;
 @Service
 public class StoreServiceImpl implements StoreService {
 
-	private AWSDynamoDBService awsDynamoDBService;
+    private AWSDynamoDBService awsDynamoDBService;
 
-	@Autowired
-	public StoreServiceImpl( AWSDynamoDBService awsDynamoDBService ) {
-		this.awsDynamoDBService = awsDynamoDBService;
-	}
+    @Autowired
+    public StoreServiceImpl( AWSDynamoDBService awsDynamoDBService ) {
+        this.awsDynamoDBService = awsDynamoDBService;
+    }
 
-	@Override
-	public List< Ticket > getStoreTickets( String storeID ) throws IOException {
+    @Override
+    public List< Ticket > getStoreTickets( String storeID ) throws IOException {
 
-		List< Ticket > ticketList = this.awsDynamoDBService.getTicketsFilteredByAttribute( "storeID", storeID );
+        List< Ticket > ticketList = this.awsDynamoDBService.getTicketsFilteredByAttribute( "storeID", storeID );
 
-		return ticketList;
-	}
+        return ticketList;
+    }
 }

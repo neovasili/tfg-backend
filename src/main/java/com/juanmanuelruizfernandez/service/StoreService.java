@@ -7,5 +7,5 @@ import java.util.List;
 
 public interface StoreService {
 
-	List<Ticket > getStoreTickets( String storeID ) throws IOException;
+    List< Ticket > getStoreTickets( String storeID ) throws IOException;
 }
